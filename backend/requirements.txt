@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+python-multipart
+python-dotenv
+openai
+pillow
+rembg
+celery[redis]
+requests

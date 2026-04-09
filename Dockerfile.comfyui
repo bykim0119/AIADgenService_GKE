@@ -1,0 +1,33 @@
+FROM pytorch/pytorch:2.5.1-cuda12.4-cudnn9-runtime
+
+ENV PYTHONUNBUFFERED=1 \
+    COMFYUI_PATH=/workspace/ComfyUI
+
+WORKDIR /workspace
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    git && rm -rf /var/lib/apt/lists/*
+
+# ComfyUI 설치
+RUN git clone --depth 1 https://github.com/comfyanonymous/ComfyUI.git ${COMFYUI_PATH}
+
+WORKDIR ${COMFYUI_PATH}
+RUN pip install --no-cache-dir -r requirements.txt
+
+# IP-Adapter Plus 커스텀 노드
+RUN cd custom_nodes && \
+    git clone --depth 1 https://github.com/cubiq/ComfyUI_IPAdapter_plus.git && \
+    if [ -f ComfyUI_IPAdapter_plus/requirements.txt ]; then \
+        pip install --no-cache-dir -r ComfyUI_IPAdapter_plus/requirements.txt; \
+    fi
+
+# 모델 다운로드용 의존성
+RUN pip install --no-cache-dir huggingface_hub accelerate
+
+COPY scripts/download_models.py /workspace/download_models.py
+COPY scripts/entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+EXPOSE 8188
+
+ENTRYPOINT ["/entrypoint.sh"]

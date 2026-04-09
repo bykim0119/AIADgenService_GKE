@@ -1,0 +1,25 @@
+FROM python:3.11-slim
+
+ENV PYTHONUNBUFFERED=1
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    fonts-nanum fonts-nanum-extra \
+    libgomp1 \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip install --no-cache-dir \
+    fastapi \
+    uvicorn \
+    python-multipart \
+    python-dotenv \
+    openai \
+    pillow \
+    rembg \
+    "celery[redis]" \
+    requests
+
+COPY backend/ ./
+
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

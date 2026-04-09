@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: comfyui
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: comfyui
+  template:
+    metadata:
+      labels:
+        app: comfyui
+    spec:
+      nodeSelector:
+        cloud.google.com/gke-accelerator: nvidia-tesla-t4
+      tolerations:
+        - key: nvidia.com/gpu
+          operator: Exists
+          effect: NoSchedule
+      containers:
+        - name: comfyui
+          image: asia-east1-docker.pkg.dev/gke-man-projects/ad-gen-project/comfyui:latest
+          ports:
+            - containerPort: 8188
+          readinessProbe:
+            httpGet:
+              path: /system_stats
+              port: 8188
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            failureThreshold: 60    # 모델 최초 다운로드 최대 10분 대기
+          env:
+            - name: HF_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: ad-secrets
+                  key: HF_TOKEN
+            - name: CIVITAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: ad-secrets
+                  key: CIVITAI_API_KEY
+            - name: COMFYUI_PATH
+              value: /workspace/ComfyUI
+          resources:
+            requests:
+              memory: "12Gi"
+            limits:
+              nvidia.com/gpu: 1
+              memory: "14Gi"
+          volumeMounts:
+            - name: comfyui-models
+              mountPath: /workspace/ComfyUI/models
+      volumes:
+        - name: comfyui-models
+          persistentVolumeClaim:
+            claimName: comfyui-models-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: comfyui-service
+spec:
+  selector:
+    app: comfyui
+  ports:
+    - port: 8188
+      targetPort: 8188
+  type: ClusterIP

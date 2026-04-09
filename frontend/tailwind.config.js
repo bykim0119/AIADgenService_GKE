@@ -1,0 +1,48 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./index.html', './src/**/*.{js,jsx}'],
+  theme: {
+    extend: {
+      colors: {
+        'surface':                    '#f6f5ff',
+        'surface-bright':             '#f6f5ff',
+        'surface-dim':                '#c7d3ff',
+        'surface-container':          '#e3e7ff',
+        'surface-container-high':     '#dbe1ff',
+        'surface-container-low':      '#eef0ff',
+        'surface-container-lowest':   '#ffffff',
+        'surface-container-highest':  '#d3dcff',
+        'surface-variant':            '#d3dcff',
+        'background':                 '#f6f5ff',
+        'primary':                    '#005bb0',
+        'primary-dim':                '#004f9b',
+        'primary-container':          '#62a1ff',
+        'on-primary':                 '#eff2ff',
+        'on-primary-container':       '#00224a',
+        'secondary':                  '#2e55b7',
+        'secondary-container':        '#c3d0ff',
+        'on-secondary':               '#f1f2ff',
+        'on-secondary-container':     '#0e40a2',
+        'error':                      '#b31b25',
+        'on-surface':                 '#202d51',
+        'on-surface-variant':         '#4e5a81',
+        'on-background':              '#202d51',
+        'outline':                    '#69769e',
+        'outline-variant':            '#9facd7',
+        'surface-tint':               '#005bb0',
+      },
+      borderRadius: {
+        DEFAULT: '0.125rem',
+        lg: '0.25rem',
+        xl: '0.5rem',
+        full: '0.75rem',
+      },
+      fontFamily: {
+        headline: ['Inter'],
+        body: ['Inter'],
+        label: ['Inter'],
+      },
+    },
+  },
+  plugins: [],
+}

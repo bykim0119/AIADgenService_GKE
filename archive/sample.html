@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AdAI Enterprise - AI Ad Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#f6f5ff",
+                        "inverse-primary": "#3990ff",
+                        "surface-bright": "#f6f5ff",
+                        "on-error-container": "#570008",
+                        "tertiary-fixed": "#eb9bfe",
+                        "on-tertiary-fixed-variant": "#651d79",
+                        "inverse-on-surface": "#8f9cc6",
+                        "surface-dim": "#c7d3ff",
+                        "inverse-surface": "#000b2e",
+                        "surface-container": "#e3e7ff",
+                        "surface-container-high": "#dbe1ff",
+                        "on-error": "#ffefee",
+                        "on-secondary": "#f1f2ff",
+                        "primary-fixed-dim": "#4193ff",
+                        "outline-variant": "#9facd7",
+                        "surface-container-low": "#eef0ff",
+                        "tertiary-container": "#eb9bfe",
+                        "background": "#f6f5ff",
+                        "primary-dim": "#004f9b",
+                        "primary": "#005bb0",
+                        "primary-container": "#62a1ff",
+                        "on-primary": "#eff2ff",
+                        "on-tertiary-fixed": "#3b004c",
+                        "on-background": "#202d51",
+                        "error-container": "#fb5151",
+                        "on-surface-variant": "#4e5a81",
+                        "on-primary-fixed": "#000000",
+                        "surface-variant": "#d3dcff",
+                        "on-primary-fixed-variant": "#002c5b",
+                        "tertiary": "#843d98",
+                        "tertiary-dim": "#77308b",
+                        "on-secondary-fixed": "#002d7f",
+                        "on-surface": "#202d51",
+                        "secondary-fixed": "#c3d0ff",
+                        "on-secondary-container": "#0e40a2",
+                        "tertiary-fixed-dim": "#dd8eef",
+                        "surface-container-highest": "#d3dcff",
+                        "outline": "#69769e",
+                        "on-tertiary": "#ffeefd",
+                        "secondary-fixed-dim": "#b0c2ff",
+                        "on-primary-container": "#00224a",
+                        "secondary-container": "#c3d0ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#5b1170",
+                        "on-secondary-fixed-variant": "#1f4aac",
+                        "primary-fixed": "#62a1ff",
+                        "surface-tint": "#005bb0",
+                        "error": "#b31b25",
+                        "error-dim": "#9f0519",
+                        "secondary-dim": "#1d49aa",
+                        "secondary": "#2e55b7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar (Shared Component Anchor) -->
+<aside class="flex flex-col h-screen fixed left-0 top-0 overflow-y-auto h-full w-64 border-r-0 bg-slate-50 dark:bg-slate-900">
+<div class="p-6">
+<h1 class="text-2xl font-semibold tracking-tighter text-slate-900 dark:text-white">AdAI Enterprise</h1>
+<p class="text-xs font-['Inter'] font-medium tracking-tight text-sm uppercase text-slate-500">Premium Plan</p>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center px-4 py-3 space-x-3 text-slate-500 dark:text-slate-400 font-['Inter'] font-medium tracking-tight text-sm uppercase hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center px-4 py-3 space-x-3 text-blue-600 dark:text-blue-400 font-bold border-r-4 border-blue-600 font-['Inter'] tracking-tight text-sm uppercase transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+<span>Ad Creator</span>
+</a>
+<a class="flex items-center px-4 py-3 space-x-3 text-slate-500 dark:text-slate-400 font-['Inter'] font-medium tracking-tight text-sm uppercase hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="folder_special">folder_special</span>
+<span>Asset Library</span>
+</a>
+<a class="flex items-center px-4 py-3 space-x-3 text-slate-500 dark:text-slate-400 font-['Inter'] font-medium tracking-tight text-sm uppercase hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center px-4 py-3 space-x-3 text-slate-500 dark:text-slate-400 font-['Inter'] font-medium tracking-tight text-sm uppercase hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="px-4 py-6 border-t border-slate-200/50">
+<button class="w-full py-3 bg-primary text-on-primary font-bold tracking-tight text-sm uppercase mb-4 active:scale-95 transition-transform">
+                New Campaign
+            </button>
+<div class="space-y-1">
+<a class="flex items-center px-4 py-2 space-x-3 text-slate-500 font-['Inter'] font-medium tracking-tight text-sm uppercase" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span>Support</span>
+</a>
+<a class="flex items-center px-4 py-2 space-x-3 text-slate-500 font-['Inter'] font-medium tracking-tight text-sm uppercase" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Sign Out</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- TopNavBar (Shared Component Anchor) -->
+<header class="flex justify-between items-center w-full px-8 ml-64 docked full-width top-0 h-16 bg-white dark:bg-slate-950 border-b border-slate-200/50 dark:border-slate-800/50 shadow-sm dark:shadow-none fixed z-10">
+<div class="flex items-center space-x-8">
+<span class="text-xl font-black text-slate-900 dark:text-white">AdAI AI Studio</span>
+<nav class="hidden md:flex items-center space-x-6">
+<a class="text-slate-600 font-['Inter'] font-semibold text-base hover:text-blue-500" href="#">Models</a>
+<a class="text-slate-600 font-['Inter'] font-semibold text-base hover:text-blue-500" href="#">A/B Testing</a>
+<a class="text-slate-600 font-['Inter'] font-semibold text-base hover:text-blue-500" href="#">Export</a>
+</nav>
+</div>
+<div class="flex items-center space-x-4">
+<button class="flex items-center space-x-1 text-slate-600 hover:text-blue-500 transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="flex items-center space-x-1 text-slate-600 hover:text-blue-500 transition-colors">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</button>
+<div class="h-8 w-8 bg-surface-container rounded-full overflow-hidden">
+<img alt="User Profile" class="h-full w-full object-cover" data-alt="professional portrait of a male creative director in a studio setting with soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtPW5M6Rjsxg93AQIeQXExGhArFD8vp3Hmv_N7KvL1g7ahJ3ZqLnFmayKdL-bfJl9iwC47HU9AE1tOilQr2urYyRs-rVLZDaOXdJ63hnHwhnHYHiz-NzRxpVXe5taWMWXyTomvun_hCTzaFrIj6tuPQAJDR7YTr-NVs7jvsrMa1g3xvSmwf87RqPVR6UTBb1AqiOqC2zdSZC2kYsGNTKPvd2_pNqf8iETDu3qIgOOIX--P6L0h_NJQDJcuob_NwefmD_whM6b9lPNX"/>
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<main class="ml-64 mt-16 flex h-[calc(100vh-64px)] overflow-hidden">
+<!-- Settings Sidebar (Internal Dashboard Nav) -->
+<section class="w-80 bg-surface-container-low border-r border-outline-variant/15 p-8 overflow-y-auto">
+<h2 class="font-headline font-bold text-lg mb-8 tracking-tight text-on-surface">Configuration</h2>
+<div class="space-y-8">
+<!-- Industry Selection -->
+<div class="space-y-3">
+<label class="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant">Industry (산업군 선택)</label>
+<select class="w-full bg-surface-container-highest border-0 h-12 px-4 focus:ring-0 focus:border-b-2 focus:border-primary transition-all text-on-surface font-body text-sm">
+<option>식음료 (Food &amp; Beverage)</option>
+<option>패션 (Fashion)</option>
+<option>IT/기술 (Technology)</option>
+<option>뷰티 (Beauty)</option>
+</select>
+</div>
+<!-- Image Style -->
+<div class="space-y-3">
+<label class="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant">Image Style (이미지 스타일)</label>
+<div class="grid grid-cols-2 gap-2">
+<button class="py-3 px-4 bg-primary text-on-primary font-bold text-xs uppercase transition-all">Cartoon</button>
+<button class="py-3 px-4 bg-surface-container-high text-on-surface font-bold text-xs uppercase hover:bg-surface-container-highest transition-all">Realistic</button>
+</div>
+</div>
+<!-- Copy Position -->
+<div class="space-y-3">
+<label class="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant">Copy Position (광고 카피 위치)</label>
+<select class="w-full bg-surface-container-highest border-0 h-12 px-4 focus:ring-0 focus:border-b-2 focus:border-primary transition-all text-on-surface font-body text-sm">
+<option>중앙 오버레이 (Overlay)</option>
+<option>상단 (Top)</option>
+<option>하단 (Bottom)</option>
+</select>
+</div>
+<!-- Product Upload -->
+<div class="space-y-3">
+<label class="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant">Product Image (제품 이미지 업로드)</label>
+<div class="border-2 border-dashed border-outline-variant/30 p-8 flex flex-col items-center justify-center bg-surface-container-lowest transition-colors hover:bg-white cursor-pointer group">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors mb-2" data-icon="cloud_upload">cloud_upload</span>
+<span class="text-xs font-body text-on-surface-variant">파일을 드래그하거나 클릭하여 업로드</span>
+</div>
+</div>
+<!-- Product Position -->
+<div class="space-y-3">
+<label class="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant">Product Position (제품 위치)</label>
+<div class="grid grid-cols-3 gap-2">
+<button class="h-10 bg-surface-container-high hover:bg-surface-container-highest transition-all flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" data-icon="align_horizontal_left">align_horizontal_left</span>
+</button>
+<button class="h-10 bg-primary text-on-primary transition-all flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" data-icon="align_horizontal_center">align_horizontal_center</span>
+</button>
+<button class="h-10 bg-surface-container-high hover:bg-surface-container-highest transition-all flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" data-icon="align_horizontal_right">align_horizontal_right</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Workspace -->
+<section class="flex-1 bg-surface p-12 overflow-y-auto">
+<div class="max-w-4xl mx-auto space-y-12">
+<!-- Generator Input -->
+<div class="space-y-6">
+<h2 class="font-headline font-bold text-2xl tracking-tight text-on-surface">어떤 광고를 만들고 싶으신가요?</h2>
+<div class="bg-surface-container-lowest p-1 shadow-[0_12px_32px_-4px_rgba(42,52,57,0.08)] flex">
+<input class="flex-1 border-0 bg-transparent px-6 py-4 focus:ring-0 font-body text-on-surface" placeholder="예: 돈까스를 맛있게 먹고 있는 귀여운 소년의 모습" type="text"/>
+<button class="bg-primary text-on-primary px-10 py-4 font-bold tracking-widest uppercase transition-all hover:bg-primary-dim active:scale-95">
+                            GENERATE
+                        </button>
+</div>
+</div>
+<!-- Result Area -->
+<div class="space-y-8">
+<div class="flex items-center justify-between">
+<h3 class="font-headline font-bold text-lg tracking-tight text-on-surface">Generated Result (생성 결과)</h3>
+<div class="flex space-x-2">
+<button class="p-2 bg-surface-container-high text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+</button>
+<button class="p-2 bg-surface-container-high text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</button>
+</div>
+</div>
+<!-- Bento-style Preview -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Main Visual -->
+<div class="col-span-8 aspect-square bg-surface-container-lowest border border-outline-variant/15 flex items-center justify-center overflow-hidden relative">
+<img alt="Generated Ad Content" class="w-full h-full object-cover" data-alt="vibrant 3d cartoon illustration of a young boy happily eating a crispy golden-brown tonkatsu cutlet in a bright kitchen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUFil1Ic9xkWHRZ_6s8iJEsWet04qPm_6_OuG7aerhJpL163kOjytzkWuLfNI20rNN2NsMXub2i_worOjDNz1drfhIna1BXPctZ3sTkHTABIz0LWKNpyG1lmar7xKy_tWSJVzatoMgQ7xLrzSSEa9OAE9HQnFN3ex7_CSBhXdUC0q0hJyUQ0MXQsQZtulPhTH3QQ10xmUHdvzKNMy06bR9aTA9iIgi0V10Z1KDXOJB9MeNo7aZmd7t6oyRULuM6fdmeF0ClzygMT0z"/>
+<!-- Overlay Text Placeholder if central -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none p-12">
+<h4 class="text-white text-5xl font-black text-center drop-shadow-2xl opacity-90 leading-tight">입안 가득 퍼지는<br/>바삭한 즐거움!</h4>
+</div>
+</div>
+<!-- Generated Copy Sidebar -->
+<div class="col-span-4 space-y-6">
+<div class="bg-surface-container-lowest p-8 border border-outline-variant/15 space-y-4">
+<label class="font-label text-[10px] font-bold uppercase tracking-widest text-primary">Primary Copy</label>
+<p class="font-headline font-bold text-xl text-on-surface leading-snug">입안 가득 퍼지는 바삭한 즐거움!</p>
+</div>
+<div class="bg-surface-container-lowest p-8 border border-outline-variant/15 space-y-4">
+<label class="font-label text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Alternative Hook 01</label>
+<p class="font-body text-on-surface-variant">한 입 베어 무는 순간, 셰프의 진심이 느껴집니다.</p>
+</div>
+<div class="bg-surface-container-lowest p-8 border border-outline-variant/15 space-y-4">
+<label class="font-label text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Alternative Hook 02</label>
+<p class="font-body text-on-surface-variant">아이들이 먼저 찾는 우리 집 단골 메뉴, 명품 돈까스</p>
+</div>
+<div class="pt-4">
+<button class="w-full py-4 border-2 border-primary text-primary font-bold uppercase tracking-widest hover:bg-primary-container/10 transition-colors">
+                                    REGENERATE COPY
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Stats / Detail -->
+<div class="grid grid-cols-3 gap-8 pt-8">
+<div class="bg-surface-container-low p-6">
+<p class="font-label text-xs uppercase font-bold text-on-surface-variant mb-2">Style Match</p>
+<p class="font-headline font-bold text-3xl text-primary">98%</p>
+</div>
+<div class="bg-surface-container-low p-6">
+<p class="font-label text-xs uppercase font-bold text-on-surface-variant mb-2">Render Time</p>
+<p class="font-headline font-bold text-3xl text-on-surface">1.2s</p>
+</div>
+<div class="bg-surface-container-low p-6">
+<p class="font-label text-xs uppercase font-bold text-on-surface-variant mb-2">Variant ID</p>
+<p class="font-headline font-bold text-3xl text-on-surface">#AD-772</p>
+</div>
+</div>
+</div>
+</section></main>
+</body></html>

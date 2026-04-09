@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: worker
+  template:
+    metadata:
+      labels:
+        app: worker
+    spec:
+      containers:
+        - name: worker
+          image: asia-east1-docker.pkg.dev/gke-man-projects/ad-gen-project/backend:latest
+          command: ["celery", "-A", "celery_app", "worker", "--loglevel=info", "--concurrency=1", "-P", "solo"]
+          env:
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: ad-secrets
+                  key: OPENAI_API_KEY
+            - name: COMFYUI_URL
+              value: "http://comfyui-service:8188"
+          resources:
+            requests:
+              memory: "1Gi"
+              cpu: "500m"
+            limits:
+              memory: "2Gi"
