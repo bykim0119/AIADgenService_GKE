@@ -186,17 +186,11 @@ kubectl port-forward deployment/comfyui 8188:8188
 
 ## 모델 라이선스
 
-| 모델 / 패키지 | 라이선스 | 상업 사용 |
-|-------------|---------|---------|
-| Lykon/DreamShaper XL (SDXL) | Apache 2.0 계열 | ✅ |
-| h94/IP-Adapter (SDXL ViT-H) | Apache 2.0 | ✅ |
-| ComfyUI | GPL-3.0 (서버사이드) | ✅ |
-| rembg (U2Net) | MIT | ✅ |
-| NanumGothic / NanumPen | OFL | ✅ |
-| GPT-5-mini (OpenAI API) | 상업 이용 허용 | ✅ |
-
----
-
-## 모델 선택 배경
-
-SDXL + IP-Adapter 구성에서 VRAM OOM 발생 → FLUX.1-schnell(Apache 2.0)으로 전환 검토 후 ComfyUI 도입으로 SDXL 복귀. 상세 의사결정 과정은 docs/decisions.md를 참고하세요.
+| 모델 / 패키지 | 라이선스 |
+|-------------|---------|
+| Lykon/DreamShaper XL (SDXL) | Apache 2.0 계열 |
+| h94/IP-Adapter (SDXL ViT-H) | Apache 2.0 |
+| ComfyUI | GPL-3.0 (서버사이드) |
+| rembg (U2Net) | MIT |
+| NanumGothic / NanumPen | OFL |
+| GPT-5-mini (OpenAI API) | 상업 이용 허용 |
